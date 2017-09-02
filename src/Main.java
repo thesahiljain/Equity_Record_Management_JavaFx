@@ -100,23 +100,23 @@ public class Main extends Application {
 
         purchasePriceColumn = new TableColumn<>("Purchase Price");
         purchasePriceColumn.setMinWidth(100);
-        purchasePriceColumn.setCellValueFactory(new PropertyValueFactory<>("purchasePriceString"));
+        purchasePriceColumn.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
 
         salePriceColumn = new TableColumn<>("Sale Price");
         salePriceColumn.setMinWidth(100);
-        salePriceColumn.setCellValueFactory(new PropertyValueFactory<>("salePriceString"));
+        salePriceColumn.setCellValueFactory(new PropertyValueFactory<>("salePrice"));
 
         purchaseBrokerageColumn = new TableColumn<>("Purchase Brokerage");
         purchaseBrokerageColumn.setMinWidth(100);
-        purchaseBrokerageColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseBrokerageString"));
+        purchaseBrokerageColumn.setCellValueFactory(new PropertyValueFactory<>("purchaseBrokerage"));
 
         saleBrokerageColumn = new TableColumn<>("Sale Brokerage");
         saleBrokerageColumn.setMinWidth(100);
-        saleBrokerageColumn.setCellValueFactory(new PropertyValueFactory<>("saleBrokerageString"));
+        saleBrokerageColumn.setCellValueFactory(new PropertyValueFactory<>("saleBrokerage"));
 
         netProfitLossColumn = new TableColumn<>("Net Profit/Loss");
         netProfitLossColumn.setMinWidth(100);
-        netProfitLossColumn.setCellValueFactory(new PropertyValueFactory<>("netProfitLossString"));
+        netProfitLossColumn.setCellValueFactory(new PropertyValueFactory<>("netProfitLoss"));
 
         table = new TableView<>(RECORD_LIST);
         table.getColumns().addAll(seriesDateColumn, purchaseDateColumn, saleDateColumn,
