@@ -125,8 +125,12 @@ public class Record {
         purchaseBrokerageString = df.format(purchaseBrokerage);
         saleBrokerageString = df.format(saleBrokerage);
         netProfitLossString = df.format(netProfitLoss);
-        if(netProfitLoss.compareTo(new BigDecimal("0")) > 0)
-            netProfitLossString = "+"+netProfitLossString;
+
+        purchasePrice = new BigDecimal(purchasePriceString);
+        salePrice = new BigDecimal(salePriceString);
+        purchaseBrokerage = new BigDecimal(purchaseBrokerageString);
+        saleBrokerage = new BigDecimal(saleBrokerageString);
+        netProfitLoss = new BigDecimal(netProfitLossString);
     }
 
     public void calculate(){
@@ -137,7 +141,6 @@ public class Record {
         saleBrokerage = salePrice.multiply(new BigDecimal(numberOfShares)).multiply(calculateBrokerageFactor(salePrice)).divide(new BigDecimal("100"));
         //Net Profit or loss
         netProfitLoss = salePrice.subtract(purchasePrice).multiply(new BigDecimal(numberOfShares)).subtract(purchaseBrokerage.add(saleBrokerage));
-
     }
     private BigDecimal calculateBrokerageFactor(BigDecimal price){
         BigDecimal factor = new BigDecimal("0.03");
