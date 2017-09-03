@@ -60,7 +60,6 @@ public class Main extends Application {
         setUserInterface();
         addButton.setOnAction(e -> onClickAddButton());
         removeButton.setOnAction(e -> onClickRemoveButton());
-        setEditable();
         window.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
@@ -300,21 +299,5 @@ public class Main extends Application {
         }else{
             event.consume();
         }
-    }
-    private void setEditable(){
-        numberOfLotsColumn.setEditable(true);
-        numberOfLotsColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Record, Integer>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<Record, Integer> event) {
-                Record currentRecord = (Record)event.getTableView().getItems().get(event.getTablePosition().getRow());
-                try{
-                    currentRecord.setNumberOfLots(event.getNewValue());
-                    currentRecord.convertToStrings();
-                    currentRecord.calculate();
-                }catch(Exception e){
-                    MessageBox.display("Error", "Invalid value entered");
-                }
-            }
-        });
     }
 }
